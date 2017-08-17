@@ -32,6 +32,13 @@ image-npm:
 	$(DOCKER) tag krizalys/npm:3.10.10 krizalys/npm:3
 	$(DOCKER) tag krizalys/npm:3.10.10 krizalys/npm:latest
 
+.PHONY: image-php
+image-php:
+	$(DOCKER) build --force-rm --tag krizalys/php:5.6.35 php
+	$(DOCKER) tag krizalys/php:5.6.35 krizalys/php:5.6
+	$(DOCKER) tag krizalys/php:5.6.35 krizalys/php:5
+	$(DOCKER) tag krizalys/php:5.6.35 krizalys/php:latest
+
 define build_push
 	$(DOCKER) build --force-rm --tag $(2) $(1)
 	$(DOCKER) push $(2)
