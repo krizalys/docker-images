@@ -3,6 +3,13 @@ DOCKER := /usr/bin/docker
 .PHONY: all
 all:
 
+.PHONY: image-composer
+image-composer: image-php
+	$(DOCKER) build --force-rm --tag krizalys/composer:1.6.4 composer
+	$(DOCKER) tag krizalys/composer:1.6.4 krizalys/composer:1.6
+	$(DOCKER) tag krizalys/composer:1.6.4 krizalys/composer:1
+	$(DOCKER) tag krizalys/composer:1.6.4 krizalys/composer:latest
+
 .PHONY: image-nginx
 image-nginx:
 	$(DOCKER) build --force-rm --tag krizalys/nginx:1.14.0 nginx/1.14.0
