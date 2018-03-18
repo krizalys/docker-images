@@ -6,3 +6,4 @@ Krizalys Docker Images
 * Node.js
 * NPM
 * PHP
+* Puppeteer

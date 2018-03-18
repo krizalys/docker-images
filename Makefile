@@ -46,6 +46,13 @@ image-php:
 	$(DOCKER) tag krizalys/php:5.6.35 krizalys/php:5
 	$(DOCKER) tag krizalys/php:5.6.35 krizalys/php:latest
 
+.PHONY: image-puppeteer
+image-puppeteer:
+	$(DOCKER) build --force-rm --tag krizalys/puppeteer:1.3.0 puppeteer
+	$(DOCKER) tag krizalys/puppeteer:1.3.0 krizalys/puppeteer:1.3
+	$(DOCKER) tag krizalys/puppeteer:1.3.0 krizalys/puppeteer:1
+	$(DOCKER) tag krizalys/puppeteer:1.3.0 krizalys/puppeteer:latest
+
 define build_push
 	$(DOCKER) build --force-rm --tag $(2) $(1)
 	$(DOCKER) push $(2)
