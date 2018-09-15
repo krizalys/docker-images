@@ -3,6 +3,20 @@ DOCKER := /usr/bin/docker
 .PHONY: all
 all:
 
+.PHONY: image-nginx
+image-nginx:
+	$(DOCKER) build --force-rm --tag krizalys/nginx:1.14.0 nginx/1.14.0
+	$(DOCKER) tag krizalys/nginx:1.14.0 krizalys/nginx:1.14
+	$(DOCKER) tag krizalys/nginx:1.14.0 krizalys/nginx:1
+	$(DOCKER) tag krizalys/nginx:1.14.0 krizalys/nginx:latest
+
+.PHONY: image-nginx-fastcgi
+image-nginx-fastcgi:
+	$(DOCKER) build --force-rm --tag krizalys/nginx:1.14.0-fastcgi nginx/1.14.0-fastcgi
+	$(DOCKER) tag krizalys/nginx:1.14.0-fastcgi krizalys/nginx:1.14-fastcgi
+	$(DOCKER) tag krizalys/nginx:1.14.0-fastcgi krizalys/nginx:1-fastcgi
+	$(DOCKER) tag krizalys/nginx:1.14.0-fastcgi krizalys/nginx:latest-fastcgi
+
 .PHONY: image-node
 image-node:
 	$(call build_push,node,krizalys/node:14.3.0-alpine3.11)
