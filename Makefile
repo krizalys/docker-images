@@ -10,6 +10,13 @@ image-composer: image-php
 	$(DOCKER) tag krizalys/composer:1.6.4 krizalys/composer:1
 	$(DOCKER) tag krizalys/composer:1.6.4 krizalys/composer:latest
 
+.PHONY: image-mysql
+image-mysql: image-mysql
+	$(DOCKER) build --force-rm --tag krizalys/mysql-client:15.1-mariadb10.2.15 mysql
+	$(DOCKER) tag krizalys/mysql-client:15.1-mariadb10.2.15 krizalys/mysql-client:15.1-mariadb10.2.15
+	$(DOCKER) tag krizalys/mysql-client:15.1-mariadb10.2.15 krizalys/mysql-client:15-mariadb10.2.15
+	$(DOCKER) tag krizalys/mysql-client:15.1-mariadb10.2.15 krizalys/mysql-client:latest-mariadb10.2.15
+
 .PHONY: image-nginx
 image-nginx:
 	$(DOCKER) build --force-rm --tag krizalys/nginx:1.14.0 nginx/1.14.0
